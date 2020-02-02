@@ -13,7 +13,8 @@ class Scraper
   
   def get_courses
     doc = get_page
-    doc.css(".post")
+    courses = doc.css(".post")
+    binding.pry
   end
   
   def make_courses
