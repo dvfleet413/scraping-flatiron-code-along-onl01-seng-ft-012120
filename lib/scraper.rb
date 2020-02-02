@@ -13,11 +13,11 @@ class Scraper
   
   def get_courses
     doc = get_page
-    courses = doc.css(".post").select{|course| course.text.size > 3}
+    doc.css(".post")
   end
   
   def make_courses
-    courses = get_courses
+    courses = get_courses.select{|course| course.text.size > 3}
     courses.each do |course|
       new_course = Course.new
       course.children.each do |element|
