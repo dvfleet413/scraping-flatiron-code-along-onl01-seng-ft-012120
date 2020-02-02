@@ -17,7 +17,9 @@ class Scraper
   end
   
   def make_courses
+  # first select only those <article> elements that aren't empty placeholders
     courses = get_courses.select{|course| course.text.size > 3}
+  # iterate over each course to instantiate a new Course object
     courses.each do |course|
       new_course = Course.new
       course.children.each do |element|
