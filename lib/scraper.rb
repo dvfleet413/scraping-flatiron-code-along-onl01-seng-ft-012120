@@ -13,7 +13,7 @@ class Scraper
   
   def get_courses
     doc = get_page
-    courses = doc.css(".post").select{|course| course.text.size
+    courses = doc.css(".post").select{|course| course.text.size > 5}
     binding.pry
   end
   
